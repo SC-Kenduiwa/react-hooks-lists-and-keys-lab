@@ -2,19 +2,15 @@ import React from "react";
 import ProjectItem from "./ProjectItem";
 
 function ProjectList({ projects }) {
-
+  console.log(projects);
+  const projectCards =projects.map((projectObj) => {
+    return <ProjectItem Key={projectObj.id} name={projectObj.name} about={projectObj.about} technologies={projectObj.technologies} />
+  })
+  
   return (
     <div id="projects">
       <h2>My Projects</h2>
-      <div id="project.id">
-        {projects.map((projects)=>
-                    <projectItem 
-                    key={projects.id}
-                    name={projects.name}
-                    technologies={projects.technologies}
-                    about={projects.about}
-                    ></projectItem>)}
-        </div>
+      <div id="project-list">{projectCards}</div>
     </div>
   );
 }
